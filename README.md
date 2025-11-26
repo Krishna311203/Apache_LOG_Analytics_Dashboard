@@ -28,3 +28,86 @@ This project demonstrates concepts used in real production systems like
 
 ## 🏗 **Architecture**
 
+      +---------------------------+
+      |      Public API (GET)     |
+      +-------------+-------------+
+                    |
+                    | Load Testing
+                    v
+             +--------------+
+             |    Locust    |
+             +------+-------+
+                    |
+                    | Raw Logs
+                    v
+            /logs/app.log
+                    |
+                    | ETL Processing
+                    v
+      +-------------------------------+
+      |           Apache Spark        |
+      |  Aggregations + P95 + Errors  |
+      +-------------------------------+
+                    |
+                    | JDBC Write
+                    v
+             +-------------+
+             |   MySQL     |
+             +------+------+
+                    |
+                    | Flask API
+                    v
+        +-------------------------+
+        |     Frontend Dashboard |
+        |  (Chart.js + Animations)|
+        +-------------------------+
+
+---
+
+## 🛠 **Tech Stack**
+
+### **Data Generation**
+- Locust (Python)
+- Public API: JSONPlaceholder
+
+### **Big Data / ETL**
+- Apache Spark (PySpark)
+- DataFrame API, aggregations, percentile_approx
+
+### **Database**
+- MySQL 8+
+- JDBC Connector
+
+### **Backend**
+- Flask
+- Flask-CORS
+
+### **Frontend**
+- HTML, CSS
+- Chart.js (Line, Bar, Doughnut, Radar)
+- Grid-based responsive layout
+- Animated dashboard cards + counters
+
+---
+
+## ✨ **Features**
+
+### ✔ End-to-end Big Data pipeline  
+### ✔ Generates realistic latency + error logs  
+### ✔ Spark computes production-grade metrics  
+### ✔ MySQL stores analytics for dashboard  
+### ✔ Flask REST API exposes results  
+### ✔ Beautiful animated UI  
+### ✔ 5 powerful visual charts:
+- Average Latency  
+- Error Count  
+- Request Count (Horizontal Bar)  
+- Error Rate (Doughnut)  
+- P95 Latency (Radar Chart)
+
+### ✔ Summary section with animated counters
+
+---
+
+## 📂 **Project Structure**
+
