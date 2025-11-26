@@ -107,7 +107,4 @@ This project demonstrates concepts used in real production systems like
 
 ### ✔ Summary section with animated counters
 
----
-
-## 📂 **Project Structure**
 
